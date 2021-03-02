@@ -4,14 +4,14 @@ let i = 0;
 
 const App = () => {
   const [userName, setUserName] = useState('');
-  const onButtonClick = async () => {
+  const chgUserName = async () => {
     const params = {
       method: 'GET',
     };
     const res = await window.fetch('https://jsonplaceholder.typicode.com/users', params);
     const jsonData = await res.json();
     if (i >= 9) {
-      setUserName('もうありません');
+      setUserName('※もうありません');
     } else {
       setUserName(jsonData[i].name);
       i++;
@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <>
-      <button onClick={() => onButtonClick()}>新しいユーザ名を取得してみよう！</button>
+      <button onClick={() => chgUserName()}>新しいユーザ名を取得してみよう！</button>
       <div>{userName}</div>
     </>
   );
